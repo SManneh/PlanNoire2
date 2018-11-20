@@ -9,7 +9,7 @@ module.exports = function(app) {
     // GET Request
     // Responds with all the vendors
     app.get('/api/vendors', function(req, res) {
-      db.Vendors.findAll({}).then(function(rows) {
+      db.vendors.find({}).then(function(rows) {
         res.json(rows)
       }).catch(function(error) {
         res.json({ error: error });
@@ -20,7 +20,7 @@ module.exports = function(app) {
   
     app.get('/api/vendors/:vendor_category', function(req, res){
 
-      db.Vendors.findAll({where : {vendor_category: req.params.vendor_category, isApproved:true}})
+      db.vendors.find({where : {vendor_category: req.params.vendor_category, isApproved:true}})
       .then(function(data){
           res.json(data);
       }).catch(function(error){
@@ -30,7 +30,7 @@ module.exports = function(app) {
 
 
       app.get("/api/vendor/:id", function(req,res){
-        db.Vendors.findAll({where:{id:req.params.id}})
+        db.vendors.find({where:{id:req.params.id}})
         .then(function(response){
           console.log(response)
           res.json(response);
@@ -41,9 +41,7 @@ module.exports = function(app) {
       })
 
       app.post('/api/vendors', function(req,res) {
-        const newVendor = req.body;
-        console.log(newVendor)
-        db.Vendors.create(req.body).then(function(response){
+        db.vendors.create(req.body).then(function(response){
           console.log(response)
           res.json(response);
         }).catch(function(error){
@@ -51,9 +49,22 @@ module.exports = function(app) {
         })
       });
 
+      app.get('/api/user', function(req, res) {
+        db.user.find({}).then(function(rows) {
+          res.json(rows)
+        }).catch(function(error) {
+          res.json({ error: error });
+        });
+      });
 
 
-
-
+      app.post('/api/user', function(req,res) {
+        db.user.create(req.body).then(function(response){
+          console.log(response)
+          res.json(response);
+        }).catch(function(error){
+          res.json({error:error});
+        })
+      });
 
 }

@@ -20,7 +20,6 @@
   "homepage": "https://github.com/SManneh/PlanNoire2#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "mysql2": "^1.6.4",
-    "sequelize": "^4.41.2"
+    "mongoose": "^5.3.13"
   }
 }
