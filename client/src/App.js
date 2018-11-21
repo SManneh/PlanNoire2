@@ -5,6 +5,7 @@ import VendorProfile  from './components/VendorProfile/VendorProfile';
 import SignOut from './components/SignOut/SignOut';
 import './App.css';
 
+
 const App = () => (
   <BrowserRouter>
     <div>
@@ -19,10 +20,12 @@ const App = () => (
       </div>
         </nav>
       </header>
+      
 
       <Route exact path='/' component={VendorPage} />
       <Route exact path='/vendorProfile' component={VendorProfile} />
       <Route exact path='/signOut' component={SignOut} />
+      
     </div>
   </BrowserRouter>
 
