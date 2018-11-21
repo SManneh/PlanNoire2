@@ -13,3 +13,10 @@ nav {
  ul li:hover {
      background-color:#E5A3AD;
  }
+
+ .logo {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 54px;
+  margin-top: 48px
+}

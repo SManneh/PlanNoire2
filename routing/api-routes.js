@@ -9,6 +9,7 @@ module.exports = function(app) {
     // GET Request
     // Responds with all the vendors
     app.get('/api/vendors', function(req, res) {
+      console.log("lol all")
       db.vendors.find({}).then(function(rows) {
         res.json(rows)
       }).catch(function(error) {
@@ -18,9 +19,9 @@ module.exports = function(app) {
 
     
   
-    app.get('/api/vendors/:vendor_category', function(req, res){
-
-      db.vendors.find({where : {vendor_category: req.params.vendor_category, isApproved:true}})
+    app.get('/api/vendors/:vendorCategory', function(req, res){
+      console.log("lol")
+      db.vendors.find({vendorCategory: req.params.vendorCategory})
       .then(function(data){
           res.json(data);
       }).catch(function(error){
