@@ -19,6 +19,7 @@ const Nav = (props) => {
           <div className="nav-wrapper">
           <Link to={'/homePage'}><img className="logo" src="images/planoire.png"/></Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <li><Link to={'/PlannerBoard'}>PlannerBoard</Link></li>
           <li><Link to={'/homePage'}>Home</Link></li>
           <li><Link className="dropdown-trigger" data-target="dropdown1" to={'/vendorCategory'}>Vendor Category</Link></li>
           <li><Link to={'/vendorProfile'}>Profile</Link></li>
