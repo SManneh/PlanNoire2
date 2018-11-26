@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Card.css';
 import axios from 'axios';
+import {Modal} from 'react-materialize'
+import {Button} from 'react-materialize'
 
 class Card extends Component {
   state = {
@@ -35,7 +37,15 @@ class Card extends Component {
                 </div>
                 <div className="card-action">
 
-                  <button>Trigger Modal</button>
+              <Modal
+                header={vendor.name}
+                 fixedFooter
+                   trigger={<Button>Booking info</Button>}>
+                   <p><b>Phone Number: </b>{vendor.phoneNumber}</p>
+                   <p><b>Email: </b>{vendor.email}</p>
+                   <p><b>Instagram Name: </b>{vendor.instagramName}</p>
+                  </Modal>
+                  
                 </div>
               </div>
             </div>

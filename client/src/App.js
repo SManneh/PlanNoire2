@@ -15,6 +15,7 @@ import Venue from './components/Venue/Venue';
 import Caterer from './components/Caterer/Caterer';
 import Decorator from './components/Decorator/Decorator';
 import PlannerBoard from './components/PlannerBoard/Plannerboard';
+import Nav from './components/Nav/Nav';
 
 class App extends Component {
   state = {  }
@@ -26,9 +27,10 @@ class App extends Component {
 
   render() { 
     return ( 
+
       <BrowserRouter>
       <div>
-        
+      <Nav/>
         <Route exact path='/' component={LandingPage}/>
         <Route exact path='/PlannerBoard' component={PlannerBoard}/>
         <Route exact path='/homePage' component={HomePage} />
@@ -45,6 +47,7 @@ class App extends Component {
 
       </div>
     </BrowserRouter>
+
 
      );
   }

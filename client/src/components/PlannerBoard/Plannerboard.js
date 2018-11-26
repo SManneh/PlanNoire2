@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
 
-class Plannerboard extends Component {
+class PlannerBoard extends Component {
     state = {  }
     render() { 
         return ( <div>
-            plannerpage
-        </div>  );
+            <div className='container'>
+            holaS
+            </div>
+        </div> );
     }
 }
  
-export default Plannerboard;
+export default PlannerBoard;

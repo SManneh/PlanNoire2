@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from '../Card/Card';
+
 
 // import axios from 'axios';
 
@@ -7,9 +8,10 @@ import Card from '../Card/Card';
 const Photographer = (props) => { 
         return (
             
-          
+
           
             <Card vendorType={props.vendorType}/>
+
            
         );
 }

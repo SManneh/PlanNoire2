@@ -17,7 +17,7 @@ const Nav = (props) => {
   </ul>
           <nav>
           <div className="nav-wrapper">
-          <Link to={'/homePage'}><img className="logo" src="images/planoire.png"/></Link>
+          {/* <Link to={'/homePage'}><img className="logo" src="images/planoire.png"/></Link> */}
           <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li><Link to={'/PlannerBoard'}>PlannerBoard</Link></li>
           <li><Link to={'/homePage'}>Home</Link></li>
