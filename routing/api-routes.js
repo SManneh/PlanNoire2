@@ -82,6 +82,12 @@ module.exports = function(app) {
         })
       })
       
-      
+  
+      app.delete('/api/user/:id', function(req,res){
+        db.user.deleteOne({_id:req.params.id}).then(function(response){
+          res.json(response)
+        })
+      })
+          
 
 }

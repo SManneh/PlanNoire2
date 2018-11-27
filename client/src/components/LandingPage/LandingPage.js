@@ -165,7 +165,8 @@ class LandingPage extends Component {
                                         </div>
 
                                         <div className="createAccount">
-                                            <button onClick={this.handleRegister} type="submit">Create Account</button>
+                                            <button onClick={this.handleRegister} type="submit" className="modal-action modal-close">Create Account</button>
+                                            
                                         </div>
 
                                     </form>

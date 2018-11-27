@@ -19,11 +19,28 @@ class VendorProfile extends Component {
              vendor:this.props.vendorInfo
          })
      }
-
+handleChange = (event) =>{
+    console.log(event.target.name)
+    console.log(event.target.value)
+    let newVendorInfo = this.state.vendor
+    newVendorInfo[event.target.name] = event.target.value
+    this.setState({
+        vendor:newVendorInfo
+    })
+}
 handleUpdate = (event) => {
     event.preventDefault();
+    console.log(this.state.vendor);
     axios.put(`/api/user/${this.state.vendor._id}`, this.state.vendor)
     .then((response)=>{console.log(response)})
+}
+
+handleDelete = (event) =>{
+    event.preventDefault();
+    console.log(this.state.vendor)
+    axios.delete(`/api/user/${this.state.vendor._id}`).then((response)=>{
+        console.log(response);
+    })
 }
 
     render() { 
@@ -134,7 +151,8 @@ handleUpdate = (event) => {
                                         </div>
 
                                         <div className="updateAccount">
-                                            <button onClick={this.handleUpdate} type="submit">Update Account</button>
+                                            <button onClick={this.handleUpdate} type="submit" className="modal-action modal-close">Update Account</button>
+                                            
                                         </div>
 
                                     </form>
@@ -145,7 +163,7 @@ handleUpdate = (event) => {
 
                   </Modal>
 
-                  <Button>Delete</Button>
+                  <Button onClick={this.handleDelete}>Delete</Button>
                 </div>
               </div>
             </div>

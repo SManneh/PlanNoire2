@@ -27,6 +27,7 @@ class App extends Component {
     var elems = document.querySelectorAll('.dropdown-trigger')
     M.Dropdown.init(elems);
   }
+  
   handleLogin = (user) =>{
     console.log("test")
     axios.post('/api/login', user)
