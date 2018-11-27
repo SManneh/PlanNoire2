@@ -5,6 +5,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .wrapper-home {
     background-image: url(http://ferndecor.com/wp-content/uploads/2013/04/fernndecor-best-indian-wedding-decor-long-island-ny-new-jersey-nj-121.jpg);
   }
   

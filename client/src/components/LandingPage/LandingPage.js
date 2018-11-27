@@ -27,7 +27,7 @@ class LandingPage extends Component {
     render() {
         return (
 
-            <div className="wrapper">
+            <div className="wrapper wrapper-home">
                 <div className="form-wrapper">
                     <h1>Log In</h1>
                     <form>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Router, Route, Link } from 'react-router-dom';
 import VendorPage from './components/VendorPage/VendorPage'
 import VendorProfile  from './components/VendorProfile/VendorProfile';
 import HomePage from './components/HomePage/HomePage';
@@ -17,6 +17,7 @@ import Decorator from './components/Decorator/Decorator';
 import PlannerBoard from './components/PlannerBoard/Plannerboard';
 import Nav from './components/Nav/Nav';
 import axios from "axios";
+import history from './history';
 class App extends Component {
   state = {  
     vendorInfo:{}
@@ -31,12 +32,18 @@ class App extends Component {
     axios.post('/api/login', user)
     .then((response)=>{
       this.setState({vendorInfo:response.data})
+      history.push({
+        pathname: '/vendorProfile',
+        state: {
+          vendorInfo:response.data
+        }
+      })
     })
 }
   render() { 
     return ( 
 
-      <BrowserRouter>
+      <Router history={history}>
       <div>
       <Nav/>
         <Route exact path='/' component={()=>(<LandingPage handleLogin={this.handleLogin}/>)}/>
@@ -54,7 +61,7 @@ class App extends Component {
         <Route exact path='/Decorator'component={()=>(<Decorator vendorType="Decorators"/>)}/>
 
       </div>
-    </BrowserRouter>
+    </Router>
 
 
      );
