@@ -75,6 +75,12 @@ module.exports = function(app) {
           res.json(response)
         })
       })
+
+      app.put('/api/user/:id', function(req,res){
+        db.user.update({_id:req.params.id}, req.body).then(function(response){
+          res.json(response)
+        })
+      })
       
       
 
