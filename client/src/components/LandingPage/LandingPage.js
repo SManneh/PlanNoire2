@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
 import './LandingPage.css';
-import { Modal } from 'react-materialize'
+import { Modal } from 'react-materialize';
+import axios from 'axios';
 // import { Button } from 'react-materialize'
 
 
 class LandingPage extends Component {
     state = {}
+
+    handleChange = (event) =>{
+        this.setState({
+            [event.target.name]:event.target.value
+        })
+    }
+    handleLogin = (event) => {
+        event.preventDefault();
+        this.props.handleLogin(this.state)
+    }
+    handleRegister = (event) =>{
+        event.preventDefault();
+        console.log(this.state)
+        axios.post('/api/user', this.state)
+        .then((response)=>{console.log(response)})
+    }
+
     render() {
         return (
 
             <div className="wrapper">
                 <div className="form-wrapper">
                     <h1>Log In</h1>
-                    <form onSubmit={this.handleSubmit} noValidate>
+                    <form>
                         <div className="email">
                             <label htmlFor="email">Email</label>
                             <input
@@ -38,7 +56,7 @@ class LandingPage extends Component {
 
                         </div>
                         <div className="logIn">
-                            <button type="submit">Log In</button>
+                            <button onClick={this.handleLogin} type="submit">Log In</button>
 
 
 
@@ -50,12 +68,12 @@ class LandingPage extends Component {
                                 <div>
                                     <form onSubmit={this.handleSubmit} noValidate>
                                         <div className="name">
-                                            <label htmlFor="name">Business Name</label>
+                                            <label htmlFor="name">Name</label>
                                             <input
 
                                                 placeholder="Business Name"
                                                 type="text"
-                                                name="firstName"
+                                                name="name"
                                                 noValidate
                                                 onChange={this.handleChange}
                                             />
@@ -67,7 +85,7 @@ class LandingPage extends Component {
 
                                                 placeholder="Choose a User Type"
                                                 type="text"
-                                                name="lastName"
+                                                name="userType"
                                                 noValidate
                                                 onChange={this.handleChange}
                                             />
@@ -79,7 +97,7 @@ class LandingPage extends Component {
 
                                                 placeholder="Vendor Category"
                                                 type="text"
-                                                name="lastName"
+                                                name="vendorCategory"
                                                 noValidate
                                                 onChange={this.handleChange}
                                             />
@@ -91,7 +109,7 @@ class LandingPage extends Component {
 
                                                 placeholder="Phone Number"
                                                 type="text"
-                                                name="lastName"
+                                                name="phoneNumber"
                                                 noValidate
                                                 onChange={this.handleChange}
                                             />
@@ -103,7 +121,7 @@ class LandingPage extends Component {
 
                                                 placeholder="Instagram Name"
                                                 type="text"
-                                                name="email"
+                                                name="instagramName"
                                                 noValidate
                                                 onChange={this.handleChange}
                                             />
@@ -115,7 +133,7 @@ class LandingPage extends Component {
 
                                                 placeholder="Image Url"
                                                 type="text"
-                                                name="email"
+                                                name="image"
                                                 noValidate
                                                 onChange={this.handleChange}
                                             />
@@ -147,7 +165,7 @@ class LandingPage extends Component {
                                         </div>
 
                                         <div className="createAccount">
-                                            <button type="submit">Create Account</button>
+                                            <button onClick={this.handleRegister} type="submit">Create Account</button>
                                         </div>
 
                                     </form>

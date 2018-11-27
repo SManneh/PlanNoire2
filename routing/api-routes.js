@@ -68,4 +68,14 @@ module.exports = function(app) {
         })
       });
 
+      app.post("/api/login",function(req,res){
+        console.log(req.body.email)
+        db.user.findOne({email:req.body.email}).then(function(response){
+          console.log(response)
+          res.json(response)
+        })
+      })
+      
+      
+
 }

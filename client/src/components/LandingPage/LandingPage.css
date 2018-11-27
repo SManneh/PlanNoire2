@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: black;
+    background-image: url(http://ferndecor.com/wp-content/uploads/2013/04/fernndecor-best-indian-wedding-decor-long-island-ny-new-jersey-nj-121.jpg);
   }
   
   .form-wrapper {
@@ -104,7 +104,7 @@
   }
   
   .createAccount button {
-    background-color: #519e8a;
+    background-color: black;
     color: #fff;
     border: 2px solid #fff;
     width: 100%;
@@ -117,9 +117,9 @@
   }
   
   .createAccount button:hover {
-    color: #519e8a;
+    color: #e5a3ad;
     background-color: #fff;
-    border: 2px solid #519e8a;
+    border: 2px solid #e5a3ad;
   }
   
   .createAccount small {
@@ -135,7 +135,7 @@
   }
   
   .logIn button {
-    background-color: #519e8a;
+    background-color: black;
     color: #fff;
     border: 2px solid #fff;
     width: 100%;
@@ -148,9 +148,9 @@
   }
   
   .logIn button:hover {
-    color: #519e8a;
+    color: #e5a3ad;
     background-color: #fff;
-    border: 2px solid #519e8a;
+    border: 2px solid #e5a3ad;
   }
   
   .logIn small {

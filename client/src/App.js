@@ -16,26 +16,34 @@ import Caterer from './components/Caterer/Caterer';
 import Decorator from './components/Decorator/Decorator';
 import PlannerBoard from './components/PlannerBoard/Plannerboard';
 import Nav from './components/Nav/Nav';
-
+import axios from "axios";
 class App extends Component {
-  state = {  }
+  state = {  
+    vendorInfo:{}
+  }
 
   componentDidMount(){
     var elems = document.querySelectorAll('.dropdown-trigger')
     M.Dropdown.init(elems);
   }
-
+  handleLogin = (user) =>{
+    console.log("test")
+    axios.post('/api/login', user)
+    .then((response)=>{
+      this.setState({vendorInfo:response.data})
+    })
+}
   render() { 
     return ( 
 
       <BrowserRouter>
       <div>
       <Nav/>
-        <Route exact path='/' component={LandingPage}/>
+        <Route exact path='/' component={()=>(<LandingPage handleLogin={this.handleLogin}/>)}/>
         <Route exact path='/PlannerBoard' component={PlannerBoard}/>
         <Route exact path='/homePage' component={HomePage} />
         <Route exact path='/vendorCategory' component={VendorPage} />
-        <Route exact path='/vendorProfile' component={VendorProfile} />
+        <Route exact path='/vendorProfile' component={() =>(<VendorProfile vendorInfo={this.state.vendorInfo}/>)} />
         <Route exact path='/signOut' component={SignOut} />
         <Route exact path='/Photographer' component={()=>(<Photographer vendorType="Photographers"/>)}/>
         <Route exact path='/Deejay' component={()=>(<Deejay vendorType="Deejays"/>)}/>
