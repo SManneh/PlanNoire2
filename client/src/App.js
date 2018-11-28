@@ -27,7 +27,7 @@ class App extends Component {
     var elems = document.querySelectorAll('.dropdown-trigger')
     M.Dropdown.init(elems);
   }
-  
+
   handleLogin = (user) =>{
     console.log("test")
     axios.post('/api/login', user)
@@ -46,7 +46,7 @@ class App extends Component {
 
       <Router history={history}>
       <div>
-      <Nav/>
+      <Nav type={this.state.vendorInfo.userType}/>
         <Route exact path='/' component={()=>(<LandingPage handleLogin={this.handleLogin}/>)}/>
         <Route exact path='/PlannerBoard' component={PlannerBoard}/>
         <Route exact path='/homePage' component={HomePage} />

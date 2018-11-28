@@ -10,6 +10,7 @@ const Nav = (props) => {
         <li><Link to={'/Photographer'}>Photographer</Link></li>
         <li><Link to={'/Deejay'}>Deejay</Link></li>
         <li><Link to={'/MakeUpArtist'}>Make Up Artist</Link></li>
+        
         <li><Link to={'/Venue'}>Venue</Link></li>
         <li><Link to={'/Caterer'}>Caterer</Link></li>
         <li><Link to={'/Bartender'}>Bartender</Link></li>
@@ -19,11 +20,26 @@ const Nav = (props) => {
           <div className="nav-wrapper">
           {/* <Link to={'/homePage'}><img className="logo" src="images/planoire.png"/></Link> */}
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><Link to={'/PlannerBoard'}>PlannerBoard</Link></li>
-          <li><Link to={'/homePage'}>Home</Link></li>
-          <li><Link className="dropdown-trigger" data-target="dropdown1" to={'/vendorCategory'}>Vendor Category</Link></li>
-          <li><Link to={'/vendorProfile'}>Profile</Link></li>
-          <li><Link to={'/signOut'}>Sign Out</Link></li>
+          { props.type == "planner" ?  <li><Link to={'/PlannerBoard'}>PlannerBoard</Link></li> : ""}
+          { 
+              props.type ?
+                <li><Link to={'/homePage'}>Home</Link></li>
+               
+              :
+              ""
+        }
+        {
+            props.type ?   <li><Link className="dropdown-trigger" data-target="dropdown1" to={'/vendorCategory'}>Vendor Category</Link></li> : ""
+        }
+        {
+            props.type ? <li><Link to={'/vendorProfile'}>Profile</Link></li> : ""
+        }
+        {
+            props.type ?  <li><Link to={'/signOut'}>Sign Out</Link></li> : ""
+        }
+        
+                
+               
         </ul>
         </div>
           </nav>

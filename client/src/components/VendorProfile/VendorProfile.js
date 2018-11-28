@@ -40,6 +40,7 @@ handleDelete = (event) =>{
     console.log(this.state.vendor)
     axios.delete(`/api/user/${this.state.vendor._id}`).then((response)=>{
         console.log(response);
+        window.location = "/"
     })
 }
 
