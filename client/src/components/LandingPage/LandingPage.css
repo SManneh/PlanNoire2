@@ -8,7 +8,8 @@
   }
 
   .wrapper-home {
-    background-image: url(http://ferndecor.com/wp-content/uploads/2013/04/fernndecor-best-indian-wedding-decor-long-island-ny-new-jersey-nj-121.jpg);
+    background-image: url('/images/back.jpg');
+   background-repeat: no-repeat;
   }
   
   .form-wrapper {
@@ -18,7 +19,7 @@
     padding: 20px 40px;
     border-radius: 10px;
     box-shadow: 0px 10px 50px #555;
-    background-color: #ffffff;
+    background-color:whitesmoke;
   }
   
   form {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './LandingPage.css';
 import { Modal } from 'react-materialize';
 import axios from 'axios';
+
 // import { Button } from 'react-materialize'
 
 
@@ -29,7 +30,7 @@ class LandingPage extends Component {
 
             <div className="wrapper wrapper-home">
                 <div className="form-wrapper">
-                    <h1>Log In</h1>
+                    <img src="images/planoire.png"/>
                     <form>
                         <div className="email">
                             <label htmlFor="email">Email</label>
@@ -178,7 +179,8 @@ class LandingPage extends Component {
                         </div>
                     </form>
                 </div>
-            </div>
+
+            </div>    
         );
 
 

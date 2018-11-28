@@ -1,0 +1,9 @@
+.sidenav {
+    background-color: rgba(0, 0, 0, 0.69);
+    color: white
+}
+
+.sidenav li>a {
+    color: white;
+}
+
