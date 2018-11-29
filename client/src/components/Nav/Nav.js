@@ -28,7 +28,7 @@ const Nav = (props) => {
 
 
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            {props.type == "planner" ? <li><Link to={'/PlannerBoard'}>PlannerBoard</Link></li> : ""}
+                            {props.type == "planner" ? <li><Link to={'/AdminPage'}>Admin</Link></li> : ""}
                             {
                                 props.type ?
                                     <li><Link to={'/homePage'}>Home</Link></li> :
@@ -51,7 +51,7 @@ const Nav = (props) => {
                         <ul className="sidenav" id="mobile-demo">
 
 
-                            {props.type == "planner" ? <li><Link to={'/PlannerBoard'}>PlannerBoard</Link></li> : ""}
+                            {props.type == "planner" ? <li><Link to={'/AdminPage'}>Admin</Link></li> : ""}
                             {
                                 props.type ?
                                     <li><Link to={'/homePage'}>Home</Link></li>

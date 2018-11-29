@@ -20,9 +20,7 @@ class LandingPage extends Component {
     }
     handleRegister = (event) =>{
         event.preventDefault();
-        console.log(this.state)
-        axios.post('/api/user', this.state)
-        .then((response)=>{console.log(response)})
+        this.props.handleRegister(this.state)
     }
 
     render() {
@@ -58,6 +56,7 @@ class LandingPage extends Component {
                         </div>
                         <div className="logIn">
                             <button onClick={this.handleLogin} type="submit">Log In</button>
+                           
 
 
 

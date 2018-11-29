@@ -14,7 +14,7 @@ import MakeUpArtist from './components/MakeUpArtist/MakeUpArtist';
 import Venue from './components/Venue/Venue';
 import Caterer from './components/Caterer/Caterer';
 import Decorator from './components/Decorator/Decorator';
-import PlannerBoard from './components/PlannerBoard/Plannerboard';
+import AdminPage from './components/AdminPage/AdminPage';
 import Nav from './components/Nav/Nav';
 import axios from "axios";
 import history from './history';
@@ -35,6 +35,20 @@ class App extends Component {
     axios.post('/api/login', user)
     .then((response)=>{
       this.setState({vendorInfo:response.data})
+      console.log("Hellooooo")
+      history.push({
+        pathname: '/vendorProfile',
+        state: {
+          vendorInfo:response.data
+        }
+      })
+    })
+}
+handleRegister = (user) =>{
+    axios.post('/api/user', user)
+    .then((response)=>{
+      this.setState({vendorInfo:response.data})
+      console.log("Hellooooo")
       history.push({
         pathname: '/vendorProfile',
         state: {
@@ -49,8 +63,8 @@ class App extends Component {
       <Router history={history}>
       <div>
       <Nav type={this.state.vendorInfo.userType}/>
-        <Route exact path='/' component={()=>(<LandingPage handleLogin={this.handleLogin}/>)}/>
-        <Route exact path='/PlannerBoard' component={PlannerBoard}/>
+        <Route exact path='/' component={()=>(<LandingPage handleRegister={this.handleRegister} handleLogin={this.handleLogin}/>)}/>
+        <Route exact path='/AdminPage' component={AdminPage}/>
         <Route exact path='/homePage' component={HomePage} />
         <Route exact path='/vendorCategory' component={VendorPage} />
         <Route exact path='/vendorProfile' component={() =>(<VendorProfile vendorInfo={this.state.vendorInfo}/>)} />
@@ -62,7 +76,6 @@ class App extends Component {
         <Route exact path='/Venue' component={()=>(<Venue vendorType="Venues"/>)}/>
         <Route exact path='/Caterer'component={()=>(<Caterer vendorType="Caterers"/>)}/>
         <Route exact path='/Decorator'component={()=>(<Decorator vendorType="Decorators"/>)}/>
-
       </div>
     </Router>
 

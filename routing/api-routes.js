@@ -88,6 +88,15 @@ module.exports = function(app) {
           res.json(response)
         })
       })
+
+      app.post('/api/admin', function(req,res) {
+        db.admin.create(req.body).then(function(response){
+          console.log(response)
+          res.json(response);
+        }).catch(function(error){
+          res.json({error:error});
+        })
+      });
           
 
 }
