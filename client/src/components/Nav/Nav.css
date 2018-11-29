@@ -7,3 +7,9 @@
     color: white;
 }
 
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0px; 
+     margin-top: 0px; 
+}
