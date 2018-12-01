@@ -20,9 +20,10 @@ module.exports = function(app) {
     
   
     app.get('/api/vendors/:vendorCategory', function(req, res){
-      console.log("lol")
-      db.vendors.find({vendorCategory: req.params.vendorCategory})
+      console.log("lol", req.params.vendorCategory)
+      db.user.find({vendorCategory:req.params.vendorCategory})
       .then(function(data){
+        console.log(data)
           res.json(data);
       }).catch(function(error){
           res.json({ error: error });
@@ -51,7 +52,7 @@ module.exports = function(app) {
       });
 
       app.get('/api/user', function(req, res) {
-        db.user.find({}).then(function(rows) {
+        db.user.find({isApproved:true}).then(function(rows) {
           res.json(rows)
         }).catch(function(error) {
           res.json({ error: error });
@@ -98,5 +99,21 @@ module.exports = function(app) {
         })
       });
           
+
+      app.post("/api/admin/login",function(req,res){
+        console.log(req.body.email)
+        db.admin.find({}).then(function(response){
+          console.log(response)
+          res.json(response)
+        })
+      })
+
+      app.get("/api/admin/approved", function(req, res){
+        db.user.find({isApproved:false}).then(function(response){
+          res.json(response)
+        }).catch(function(err){
+          res.json(err);
+        })
+      })
 
 }

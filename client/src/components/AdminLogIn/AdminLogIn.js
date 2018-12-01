@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import './AdminLogin.css';
-import { Modal } from 'react-materialize';
+
 import axios from 'axios';
 
 // import { Button } from 'react-materialize'
 
 
 class AdminLogin extends Component {
-    state = {}
+    state = {
+        email:'',
+        password:""
+    }
 
     handleChange = (event) =>{
         this.setState({
             [event.target.name]:event.target.value
         })
     }
-    handleLogin = (event) => {
-        event.preventDefault();
-        this.props.handleLogin(this.state)
+    handleAdminLogin = (event) => {
+        event.preventDefault()
+        this.props.handleAdminLogin(this.state)
     }
-    handleRegister = (event) =>{
-        event.preventDefault();
-        this.props.handleRegister(this.state)
-    }
+
 
     render() {
         return (
@@ -55,7 +55,7 @@ class AdminLogin extends Component {
 
                         </div>
                         <div className="logIn">
-                            <button onClick={this.handleLogin} type="submit">Log In</button>
+                            <button onClick={this.handleAdminLogin} type="submit">Log In</button>
                            
                         </div>
                     </form>

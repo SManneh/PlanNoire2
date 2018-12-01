@@ -77,7 +77,7 @@ const Nav = (props) => {
                             <li><Link to={'/Bartender'}>Bartender</Link></li>
                             <li><Link to={'/Decorator'}>Decorator</Link></li>
                             {
-                                props.type ? <li><Link to={'/signOut'}>Sign Out</Link></li> : ""
+                                props.type ? <li onClick={props.handleSignOut}><Link to={'/signOut'}>Sign Out</Link></li> : ""
                             }
 
 

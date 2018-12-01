@@ -61,7 +61,7 @@ handleDelete = (event) =>{
             <p><b>Vendor Category: </b>{this.props.vendorInfo.vendorCategory}</p>
                 </div>
     
-                <div className="card-action">
+                <div style={{"display":"flex"}} className="card-action">
                   {/* <button>Update</button> */}
 
           <Modal
@@ -152,7 +152,7 @@ handleDelete = (event) =>{
                                         </div>
 
                                         <div className="updateAccount">
-                                            <button onClick={this.handleUpdate} type="submit" className="modal-action modal-close">Update Account</button>
+                                            <Button onClick={this.handleUpdate} type="submit" className="modal-action modal-close">Update Account</Button>
                                             
                                         </div>
 

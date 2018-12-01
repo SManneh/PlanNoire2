@@ -21,14 +21,17 @@ const UserSchema = new Schema({
     phoneNumber: String,
     email: String,
     instagramName: String,
-    password: String
-
+    password: String,
+    isApproved: {
+      type:Boolean,
+      default:false
+    }
   });
   
 
 
 
 
-const user = mongoose.model('user', UserSchema);
+const user = mongoose.model('users', UserSchema);
 
 module.exports = user;

@@ -18,9 +18,11 @@ import AdminPage from './components/AdminPage/AdminPage';
 import Nav from './components/Nav/Nav';
 import axios from "axios";
 import history from './history';
+import AdminLogin from './components/AdminLogin/AdminLogin';
 class App extends Component {
   state = {  
-    vendorInfo:{}
+    vendorInfo:{},
+    admin:{}
   }
 
   componentDidMount(){
@@ -57,6 +59,32 @@ handleRegister = (user) =>{
       })
     })
 }
+
+handleAdminLogin = (admin) => {
+  axios.post('/api/admin/login', admin)
+  .then((response)=>{
+     this.setState({admin:response.data})
+     history.push({
+       pathname:'/AdminPage',
+       state:{
+        admin:response.data
+       }
+
+       })
+     })
+  }
+
+  handleSignOut = (event) => {
+    console.log("Sign Out")
+    this.setState({
+      vendorInfo:{},
+      admin:{}
+    })
+    history.push({
+      pathname:'/'
+    })
+  }
+
   render() { 
     return ( 
 
@@ -64,13 +92,13 @@ handleRegister = (user) =>{
       <div>
       <Nav type={this.state.vendorInfo.userType}/>
         <Route exact path='/' component={()=>(<LandingPage handleRegister={this.handleRegister} handleLogin={this.handleLogin}/>)}/>
+        <Route exact path='/AdminLogin' component={()=>(<AdminLogin handleAdminLogin={this.handleAdminLogin}/>)}/>
         <Route exact path='/AdminPage' component={AdminPage}/>
         <Route exact path='/homePage' component={HomePage} />
         <Route exact path='/vendorCategory' component={VendorPage} />
+        <Route exact path="/signOut" component ={()=>(<SignOut handleSignOut={this.handleSignOut}/>)}/>
         <Route exact path='/vendorProfile' component={() =>(<VendorProfile vendorInfo={this.state.vendorInfo}/>)} />
-        <Route exact path='/signOut' component={SignOut} />
         <Route exact path='/Photographer' component={()=>(<Photographer vendorType="Photographers"/>)}/>
-        <Route exact path='/Deejay' component={()=>(<Deejay vendorType="Deejays"/>)}/>
         <Route exact path='/Deejay' component={()=>(<Deejay vendorType="Deejays"/>)}/>
         <Route exact path='/MakeUpArtist' component={()=>(<MakeUpArtist vendorType="Make Up Artists"/>)}/>
         <Route exact path='/Venue' component={()=>(<Venue vendorType="Venues"/>)}/>

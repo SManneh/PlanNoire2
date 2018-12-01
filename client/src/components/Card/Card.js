@@ -11,8 +11,9 @@ class Card extends Component {
   }
   getVendors = (vendorType) => {
     console.log("Vendors...", vendorType)
-    let url = "/api/vendors/"
-    vendorType ? url = url + vendorType : url = url;
+    let url = "/api/user/"
+    vendorType ? url = "/api/vendors/" + vendorType : url = url;
+    console.log(url)
     axios.get(url).then((response) => {
       console.log(response)
       this.setState({ vendors: response.data })

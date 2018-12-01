@@ -5,7 +5,8 @@ import Card from '../Card/Card';
 // import axios from 'axios';
 
 
-const Photographer = (props) => { 
+const Photographer = (props) => {
+        console.log("Photographer", props);
         return (
             
 
