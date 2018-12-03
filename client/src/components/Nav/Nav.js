@@ -21,14 +21,14 @@ const Nav = (props) => {
                 </ul>
                 <nav>
                     <div className="nav-wrapper">
-                        <Link to={'/homePage'}><img className="logo" src="images/planoire2copy.png"/></Link>
+                    <a href="#" class="brand-logo">PlaNoire</a>
                         {
                             props.type ? <Link to={'/'} data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link> : ""
                         }
 
 
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            {props.type == "planner" ? <li><Link to={'/AdminPage'}>Admin</Link></li> : ""}
+                            {/* {props.type == "planner" ? <li><Link to={'/AdminPage'}>Admin</Link></li> : ""} */}
                             {
                                 props.type ?
                                     <li><Link to={'/homePage'}>Home</Link></li> :

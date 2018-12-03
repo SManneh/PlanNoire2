@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './LandingPage.css';
 import { Modal } from 'react-materialize';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 // import { Button } from 'react-materialize'
 
@@ -176,6 +177,7 @@ class LandingPage extends Component {
                             </Modal>
 
                         </div>
+                        <Link to={'/AdminLogin'}><small>Admin Log in here!</small></Link>
                     </form>
                 </div>
 

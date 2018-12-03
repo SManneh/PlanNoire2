@@ -19,6 +19,7 @@ import Nav from './components/Nav/Nav';
 import axios from "axios";
 import history from './history';
 import AdminLogin from './components/AdminLogin/AdminLogin';
+
 class App extends Component {
   state = {  
     vendorInfo:{},
@@ -51,12 +52,13 @@ handleRegister = (user) =>{
     .then((response)=>{
       this.setState({vendorInfo:response.data})
       console.log("Hellooooo")
-      history.push({
-        pathname: '/vendorProfile',
-        state: {
-          vendorInfo:response.data
-        }
-      })
+      // history.push({
+      //   pathname: '/vendorProfile',
+      //   state: {
+      //     vendorInfo:response.data
+      //   }
+      // })
+    window.location='/'
     })
 }
 

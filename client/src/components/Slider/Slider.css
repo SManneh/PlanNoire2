@@ -1,5 +1,8 @@
-.slider {
-    margin-top: 120px;
-    width:100%
-  
+.text {
+    /* color: black;
+    background-color: rgba(255,255,255,0.5); */
+    font-family: 'Playfair Display', serif;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.3); 
+    text-shadow: black
 }
