@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Table from 'react-materialize';
 import axios from 'axios';
-
+import './AdminPage.css';
 
 
 class AdminPage extends Component {

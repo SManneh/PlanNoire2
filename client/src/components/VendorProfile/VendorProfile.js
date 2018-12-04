@@ -163,8 +163,15 @@ handleDelete = (event) =>{
 
 
                   </Modal>
-
-                  <Button onClick={this.handleDelete}>Delete</Button>
+                  <Modal
+  header="Please Don't go"
+  trigger={<Button>Delete</Button>}>
+  <img src="https://www.columbusunderground.com/wp-content/uploads/2016/05/Sad-Dog-with-flower.jpg"></img>
+  <p>Are you sure you want to leave us :(?</p>
+<Button      
+onClick={this.handleDelete}>Yes</Button>
+</Modal>
+                  
                 </div>
               </div>
             </div>
@@ -175,8 +182,7 @@ handleDelete = (event) =>{
 }
  
 export default VendorProfile;       
-        
-        
+   
         
         
             {/* <div className="container">
