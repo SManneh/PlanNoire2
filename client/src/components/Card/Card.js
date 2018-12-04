@@ -41,7 +41,7 @@ class Card extends Component {
               <Modal
                 header={vendor.name}
                  fixedFooter
-                   trigger={<Button>Booking info</Button>}>
+                   trigger={<Button className="cardButton">Booking info</Button>}>
                    <p><b>Phone Number: </b>{vendor.phoneNumber}</p>
                    <p><b>Email: </b>{vendor.email}</p>
                    <p><b>Instagram Name: </b>{vendor.instagramName}</p>

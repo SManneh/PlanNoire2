@@ -12,11 +12,13 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
-mongoose.connect('mongodb://localhost/vendors', { useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost/vendors', { useNewUrlParser: true });
 
 
 
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/vendors";
 
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
 

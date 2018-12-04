@@ -13,3 +13,15 @@
       border:2px;
       box-shadow: rgba(0,0,0,0.2);
   }
+
+  .btn {
+    color: #fff;
+    background-color: black;
+  }
+
+  .btn:hover {
+      color: white;
+      background-color: #E5A3AD;
+  }
+
+  
