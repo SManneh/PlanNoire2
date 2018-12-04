@@ -22,8 +22,8 @@ import AdminLogin from './components/AdminLogin/AdminLogin';
 
 class App extends Component {
   state = {  
-    vendorInfo:{},
-    admin:{}
+    userInfo:{},
+   
   }
 
   componentDidMount(){
@@ -37,12 +37,13 @@ class App extends Component {
     console.log("test")
     axios.post('/api/login', user)
     .then((response)=>{
-      this.setState({vendorInfo:response.data})
+      console.log(response, "requglar user --------")
+      this.setState({userInfo:response.data})
       console.log("Hellooooo")
       history.push({
         pathname: '/vendorProfile',
         state: {
-          vendorInfo:response.data
+          userInfo:response.data
         }
       })
     })
@@ -50,7 +51,8 @@ class App extends Component {
 handleRegister = (user) =>{
     axios.post('/api/user', user)
     .then((response)=>{
-      this.setState({vendorInfo:response.data})
+      console.log(response.data, "regular user");
+      this.setState({userInfo:response.data})
       console.log("Hellooooo")
       // history.push({
       //   pathname: '/vendorProfile',
@@ -65,11 +67,12 @@ handleRegister = (user) =>{
 handleAdminLogin = (admin) => {
   axios.post('/api/admin/login', admin)
   .then((response)=>{
-     this.setState({admin:response.data})
+    console.log(response.data[0], " This is our response");
+     this.setState({userInfo:response.data[0]})
      history.push({
        pathname:'/AdminPage',
        state:{
-        admin:response.data
+        userInfo:response.data
        }
 
        })
@@ -79,8 +82,8 @@ handleAdminLogin = (admin) => {
   handleSignOut = (event) => {
     console.log("Sign Out")
     this.setState({
-      vendorInfo:{},
-      admin:{}
+      userInfo:{},
+   
     })
     history.push({
       pathname:'/'
@@ -92,14 +95,14 @@ handleAdminLogin = (admin) => {
 
       <Router history={history}>
       <div>
-      <Nav type={this.state.vendorInfo.userType}/>
+      <Nav type={this.state.userInfo.userType}/>
         <Route exact path='/' component={()=>(<LandingPage handleRegister={this.handleRegister} handleLogin={this.handleLogin}/>)}/>
         <Route exact path='/AdminLogin' component={()=>(<AdminLogin handleAdminLogin={this.handleAdminLogin}/>)}/>
         <Route exact path='/AdminPage' component={AdminPage}/>
         <Route exact path='/homePage' component={HomePage} />
         <Route exact path='/vendorCategory' component={VendorPage} />
         <Route exact path="/signOut" component ={()=>(<SignOut handleSignOut={this.handleSignOut}/>)}/>
-        <Route exact path='/vendorProfile' component={() =>(<VendorProfile vendorInfo={this.state.vendorInfo}/>)} />
+        <Route exact path='/vendorProfile' component={() =>(<VendorProfile vendorInfo={this.state.userInfo}/>)} />
         <Route exact path='/Photographer' component={()=>(<Photographer vendorType="Photographers"/>)}/>
         <Route exact path='/Deejay' component={()=>(<Deejay vendorType="Deejays"/>)}/>
         <Route exact path='/MakeUpArtist' component={()=>(<MakeUpArtist vendorType="Make Up Artists"/>)}/>

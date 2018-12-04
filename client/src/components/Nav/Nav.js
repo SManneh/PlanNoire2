@@ -23,12 +23,12 @@ const Nav = (props) => {
                     <div className="nav-wrapper">
                     <a href="#" class="brand-logo">PlaNoire</a>
                         {
-                            props.type ? <Link to={'/'} data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link> : ""
+                            props.type  ? <Link to={'/'} data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link> : ""
                         }
 
 
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            {/* {props.type == "planner" ? <li><Link to={'/AdminPage'}>Admin</Link></li> : ""} */}
+                            {props.type == "admin" ? <li><Link to={'/AdminPage'}>Admin</Link></li> : ""}
                             {
                                 props.type ?
                                     <li><Link to={'/homePage'}>Home</Link></li> :

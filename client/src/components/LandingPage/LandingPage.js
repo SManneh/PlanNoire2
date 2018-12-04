@@ -4,6 +4,7 @@ import { Modal } from 'react-materialize';
 import { Link } from 'react-router-dom';
 
 
+
 // import { Button } from 'react-materialize'
 
 
@@ -168,6 +169,7 @@ class LandingPage extends Component {
                                         <div className="createAccount">
                                             <button onClick={this.handleRegister} type="submit" className="modal-action modal-close">Create Account</button>
                                             
+
                                         </div>
 
                                     </form>
@@ -175,6 +177,7 @@ class LandingPage extends Component {
 
 
                             </Modal>
+
 
                         </div>
                         <Link to={'/AdminLogin'}><small>Admin Log in here!</small></Link>

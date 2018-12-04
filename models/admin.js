@@ -12,7 +12,8 @@ const AdminSchema = new Schema({
     isAdmin:{
         ofBoolean: [Boolean],
         
-    }
+    },
+    userType:String,
 
   });
   
